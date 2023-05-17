@@ -41,9 +41,13 @@ function Navigation() {
             <NavLink className="fs-5 text-dark mx-2 text-decoration-none" to="/">  Home   </NavLink>
             <NavLink className="fs-5 text-dark mx-2 text-decoration-none" to="/blog">  Blog   </NavLink>
 
+            <NavLink className="fs-5 text-dark mx-2 text-decoration-none"style={{ whiteSpace: "nowrap" }} to="/allToys">  All Toys   </NavLink>
+
             {user ? (
               <>
                 <>
+                  <NavLink className="fs-5 text-dark mx-2 text-decoration-none now" to="/myToy" style={{ whiteSpace: "nowrap" }}>  My Toy   </NavLink>
+                  <NavLink className="fs-5 text-dark mx-2 text-decoration-none" to="/addToy" style={{ whiteSpace: "nowrap" }}>  Add A Toy   </NavLink>
                   <img
                     className="border border-dark me-2 profile-pic rounded-circle"
                     src={photo ? photo : profile} alt=""

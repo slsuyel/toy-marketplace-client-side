@@ -13,7 +13,8 @@ import profile from "../../../assets/profile.png";
 
 function Navigation() {
   const { user, logOut, photo } = useContext(AuthContext);
-  console.log(user)
+  // console.log(photo)
+  // console.log(user)
   const logoutBtn = () => {
     logOut();
   };

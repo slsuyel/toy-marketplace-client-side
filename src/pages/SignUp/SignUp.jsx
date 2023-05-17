@@ -1,14 +1,14 @@
 import { useContext, useState } from "react";
 import { AuthContext } from "../../providers/AuthProviders";
 import { Form } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import authentications from '../../assets/authentications-gif.gif'
 import GoogleGitHubLogin from "../shares/GoogleGitHubLogin/GoogleGitHubLogin";
 const SignUp = () => {
   const { createUser } = useContext(AuthContext)
   // eslint-disable-next-line no-unused-vars
   const [error, setError] = useState("");
-
+  const navigate = useNavigate();
   {/* sweetalert */ }
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -16,12 +16,16 @@ const SignUp = () => {
     // const name = form.name.value
     const password = form.password.value
     const email = form.email.value
+   // const pic = form.photoUrl.value;
     // const confirmPassword = form.confirmPassword.value
     //    console.log({name,password,email});
     createUser(email, password).then((userCredential) => {
       // Signed in 
       const user = userCredential.user;
       console.log(user)
+     // form.reset();
+        navigate("/");
+  
     })
       .catch((error) => {
         const errorMessage = error.message;
@@ -54,7 +58,16 @@ const SignUp = () => {
               className="border-0 border-bottom form-control pb-2 rounded-0"
             />
           </Form.Group>
-
+          <Form.Group className="mb-3" controlId="formBasicPhoto">
+            <Form.Label>Photo URL</Form.Label>
+            <Form.Control
+              type="text"
+              placeholder="Enter photo URL"
+              name="photoUrl"
+              required
+              className="border-0 border-bottom form-control pb-2 rounded-0"
+            />
+          </Form.Group>
 
           <Form.Group className="mb-3" controlId="formBasicEmail">
             <Form.Label>Email address</Form.Label>

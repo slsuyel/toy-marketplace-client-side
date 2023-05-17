@@ -1,12 +1,14 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { Container, Form, Button } from "react-bootstrap";
 import Swal from "sweetalert2";
+import { AuthContext } from "../../providers/AuthProviders";
 
 const AddToy = () => {
+    const { user } = useContext(AuthContext)
     const [pictureUrl, setPictureUrl] = useState("");
     const [name, setName] = useState("");
     const [sellerName, setSellerName] = useState("");
-    const [sellerEmail, setSellerEmail] = useState("");
+
     const [subCategory, setSubCategory] = useState("");
     const [price, setPrice] = useState(0);
     const [rating, setRating] = useState(0);
@@ -20,7 +22,7 @@ const AddToy = () => {
             pictureUrl: event.target.pictureUrl.value,
             name: event.target.name.value,
             sellerName: event.target.sellerName.value,
-            sellerEmail: event.target.sellerEmail.value,
+            sellerEmail: user?.email,
             subCategory: event.target.subCategory.value,
             price: parseFloat(event.target.price.value),
             rating: parseFloat(event.target.rating.value),
@@ -28,7 +30,7 @@ const AddToy = () => {
             detailDescription: event.target.detailDescription.value,
         };
 
-       // console.log(formData);
+        // console.log(formData);
 
         fetch('http://localhost:3000/toys', {
             method: 'POST',
@@ -47,7 +49,7 @@ const AddToy = () => {
                         title: 'Your toy has been saved',
                         showConfirmButton: false,
                         timer: 1500
-                      })
+                    })
                 }
             })
 
@@ -101,8 +103,8 @@ const AddToy = () => {
                             type="email"
                             placeholder="Enter seller email"
                             name="sellerEmail"
-                            value={sellerEmail}
-                            onChange={(event) => setSellerEmail(event.target.value)}
+                            value={user?.email}
+
                         />
                     </Form.Group>
                 </div>

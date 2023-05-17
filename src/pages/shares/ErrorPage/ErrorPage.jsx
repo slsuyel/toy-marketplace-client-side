@@ -1,5 +1,5 @@
 import { Link, useRouteError } from "react-router-dom";
-
+import errorImg from '../../../assets/errr.png' 
 function ErrorPage() {
     const error = useRouteError();
     console.error(error);
@@ -8,7 +8,7 @@ function ErrorPage() {
         <div className="error-page  mt-5 text-center">
 
             <img
-                src="https://image.pngaaa.com/616/4451616-middle.png"
+                src={errorImg}
                 alt=""
                 className="img-fluid img-thumbnail mx-auto w-25"
             />

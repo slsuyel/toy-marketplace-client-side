@@ -46,16 +46,23 @@ const Footer = () => {
                     <div className="col-6 col-lg-2 mb-3">
                         <h5>Community</h5>
                         <ul className="list-unstyled">
-                            <li className="mb-2"><a href="https://github.com/twbs/bootstrap/issues">Issues</a></li>
-                            <li className="mb-2"><a href="https://github.com/twbs/bootstrap/discussions">Discussions</a></li>
-                            <li className="mb-2"><a href="https://github.com/sponsors/twbs">Corporate sponsors</a></li>
-                            <li className="mb-2"><a href="https://opencollective.com/bootstrap">Open Collective</a></li>
-                            <li className="mb-2"><a href="https://stackoverflow.com/questions/tagged/bootstrap-5">Stack Overflow</a></li>
+                            <li className="mb-2"><a href="#">Issues</a></li>
+                            <li className="mb-2"><a href="#">Discussions</a></li>
+                            <li className="mb-2"><a href="#">Corporate sponsors</a></li>
+                            <li className="mb-2"><a href="#">Open Collective</a></li>
+                            <li className="mb-2"><a href="#">Stack Overflow</a></li>
                         </ul>
+
                     </div>
                 </div>
             </div>
-        </footer>
+
+            <div className="text-center px-4" style={{ backgroundColor: 'rgba(0, 0, 0, 0.05)' }}>
+                © 2023. All rights reserved.
+            </div>
+
+
+        </footer >
     );
 };
 

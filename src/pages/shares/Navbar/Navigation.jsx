@@ -5,7 +5,17 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import { Link, NavLink } from 'react-router-dom';
 import '../../../styles/styles.css'
+import { AuthContext } from '../../../providers/AuthProviders';
+import { useContext } from 'react';
 function Navigation() {
+  const { user, logOut } = useContext(AuthContext);
+  console.log(user)
+  const logoutBtn = () => {
+    logOut();
+  };
+
+
+
   return (
     <Navbar bg="light" expand="lg">
       <Container fluid>
@@ -26,8 +36,23 @@ function Navigation() {
           >
             <NavLink className="fs-5 text-dark mx-2 text-decoration-none" to="/">  Home   </NavLink>
             <NavLink className="fs-5 text-dark mx-2 text-decoration-none" to="/blog">  Blog   </NavLink>
-            <NavLink className="fs-5 text-dark mx-2 text-decoration-none" to="/">  Home   </NavLink>
-            <NavLink className="fs-5 text-dark mx-2 text-decoration-none" to="/">  Home   </NavLink>
+
+            {user ? (
+              <>
+
+                <p
+                  onClick={logoutBtn}
+                  className="btn btn-info fw-semibold mb-0 mx-1"
+                  style={{ whiteSpace: "nowrap" }}
+                >
+                  Log Out
+                </p>
+              </>
+            ) : (
+              <NavLink className="fs-5 text-dark mx-2 text-decoration-none" to="/login">
+                Login
+              </NavLink>
+            )}
           </Nav>
           <Form className="d-flex">
             <Form.Control

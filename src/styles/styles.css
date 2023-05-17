@@ -1,0 +1,12 @@
+.active {
+  color: rgb(43, 43, 43) !important;
+  font-weight: bold;
+  border-bottom: 2px solid transparent;
+  border-bottom: 2px solid rgb(7, 15, 1);
+}
+
+.active:hover {
+    color: rgb(15, 14, 16) !important ;
+    transition: border-bottom 0.5s ease;
+    border: 0;
+}

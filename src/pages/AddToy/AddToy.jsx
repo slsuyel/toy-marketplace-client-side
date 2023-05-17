@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Container, Form, Button } from "react-bootstrap";
+import Swal from "sweetalert2";
 
 const AddToy = () => {
     const [pictureUrl, setPictureUrl] = useState("");
@@ -27,9 +28,29 @@ const AddToy = () => {
             detailDescription: event.target.detailDescription.value,
         };
 
-        console.log(formData);
+       // console.log(formData);
 
-        // TODO: Handle submission logic
+        fetch('http://localhost:3000/toys', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(formData)
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                if (data.acknowledged) {
+                    Swal.fire({
+                        position: 'center',
+                        icon: 'success',
+                        title: 'Your toy has been saved',
+                        showConfirmButton: false,
+                        timer: 1500
+                      })
+                }
+            })
+
     };
 
     return (
@@ -38,7 +59,7 @@ const AddToy = () => {
 
             <Form onSubmit={handleSubmit}>
                 <div className="d-flex gap-2 justify-content-around">
-                    <Form.Group className="w-100"  controlId="pictureUrl">
+                    <Form.Group className="w-100" controlId="pictureUrl">
                         <Form.Label>Picture URL of the toy</Form.Label>
                         <Form.Control
                             type="text"

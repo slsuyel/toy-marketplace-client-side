@@ -4,7 +4,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { AuthContext } from "../../providers/AuthProviders";
 import GoogleGitHubLogin from "../shares/GoogleGitHubLogin/GoogleGitHubLogin";
-
+import authentications from '../../assets/authentications-gif.gif'
 const Login = () => {
     const { signIn } = useContext(AuthContext);
   
@@ -37,7 +37,7 @@ const Login = () => {
       <div className="container mx-auto row w-100">
         <div className="col-md-6">
           <img
-            src="https://rurutek.com/jio/assets/img/login-animate.gif"
+            src={authentications}
             alt=""
             draggable="false"
             className="img-fluid"

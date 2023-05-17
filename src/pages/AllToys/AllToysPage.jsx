@@ -7,7 +7,7 @@ const AllToysPage = () => {
   const [searchQuery, setSearchQuery] = useState("");
 
   useEffect(() => {
-    fetch("data.json")
+    fetch("http://localhost:3000/alltoys")
       .then((response) => response.json())
       .then((data) => setToys(data))
       .catch((error) => {

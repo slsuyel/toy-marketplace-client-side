@@ -3,6 +3,7 @@ import { AuthContext } from "../../providers/AuthProviders";
 import { Button, Container, Table } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import useTitle from "../../hooks/useTitle";
+import Swal from "sweetalert2";
 
 const MyToys = () => {
     useTitle('My toys')
@@ -16,9 +17,39 @@ const MyToys = () => {
             .then((data) => {
                 setMyToys(data)
             });
-    }, [user]);
+    }, [user, myToys]);
 
-
+    const handleDelete = (id) => {
+        Swal.fire({
+          title: 'Are you sure?',
+          text: "You won't be able to revert this!",
+          icon: 'warning',
+          showCancelButton: true,
+          confirmButtonColor: '#3085d6',
+          cancelButtonColor: '#d33',
+          confirmButtonText: 'Yes, delete it!'
+        }).then((result) => {
+          if (result.isConfirmed) {
+            fetch(`http://localhost:3000/alltoys/${id}`, {
+              method: "DELETE",
+            })
+              .then(res => res.json())
+              .then(data => {
+                console.log(data);
+                if (data.deletedCount > 0) {
+                  Swal.fire({
+                    position: 'top-end',
+                    icon: 'success',
+                    title: 'Your toy has been deleted',
+                    showConfirmButton: false,
+                    timer: 1500
+                  })
+                }
+              })
+          }
+        });
+      }
+      
     return (
         <Container>
             <Table striped bordered hover>
@@ -29,7 +60,7 @@ const MyToys = () => {
                         <th>Sub-category</th>
                         <th>Price</th>
                         <th>Available Quantity</th>
-                        <th>View Details</th>
+                        <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -40,10 +71,11 @@ const MyToys = () => {
                             <td>{toy.subCategory}</td>
                             <td>{toy.price}</td>
                             <td>{toy.availableQuantity}</td>
-                            <td>
+                            <td className="d-flex gap-2">
                                 <Link to={`/toys/${toy._id}`}>
-                                    <Button variant="primary">View Details</Button>
+                                    <Button variant="primary">Update </Button>
                                 </Link>
+                                <button onClick={() => { handleDelete(toy._id) }} className="btn btn-danger">Delete</button>
                             </td>
                         </tr>
                     ))}

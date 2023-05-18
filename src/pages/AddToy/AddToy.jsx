@@ -2,8 +2,10 @@ import { useContext, useState } from "react";
 import { Container, Form, Button } from "react-bootstrap";
 import Swal from "sweetalert2";
 import { AuthContext } from "../../providers/AuthProviders";
+import useTitle from "../../hooks/useTitle";
 
 const AddToy = () => {
+    useTitle('Add to toy');
     const { user } = useContext(AuthContext)
     const [pictureUrl, setPictureUrl] = useState("");
     const [name, setName] = useState("");
@@ -104,7 +106,6 @@ const AddToy = () => {
                             placeholder="Enter seller email"
                             name="sellerEmail"
                             value={user?.email}
-
                         />
                     </Form.Group>
                 </div>

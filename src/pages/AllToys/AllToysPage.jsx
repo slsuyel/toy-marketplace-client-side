@@ -1,8 +1,10 @@
 import { useState, useEffect } from "react";
 import { Container, Table, Button, Form } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import useTitle from "../../hooks/useTitle";
 
 const AllToysPage = () => {
+  useTitle('All Toys')
   const [toys, setToys] = useState([]);
   const [searchQuery, setSearchQuery] = useState("");
 

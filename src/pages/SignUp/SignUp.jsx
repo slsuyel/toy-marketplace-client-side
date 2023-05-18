@@ -4,7 +4,9 @@ import { Form } from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom";
 import authentications from '../../assets/authentications-gif.gif'
 import GoogleGitHubLogin from "../shares/GoogleGitHubLogin/GoogleGitHubLogin";
+import useTitle from "../../hooks/useTitle";
 const SignUp = () => {
+  useTitle("Sign Up")
   const { createUser } = useContext(AuthContext)
   // eslint-disable-next-line no-unused-vars
   const [error, setError] = useState("");

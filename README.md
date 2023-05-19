@@ -2,14 +2,13 @@
 
 ToyCarMania is a thrilling online destination dedicated to the joy of toy cars. Experience the excitement as you explore a wide range of toy cars, from classic models to cutting-edge designs. Unleash your inner child and embark on an adventure filled with endless fun and nostalgia at ToyCarMania.
 
-
 ## Live Link
-[ToyCarMania](#)
+
+[ToyCarMania](https://assignment-11-1f233.web.app/)
 
 ## Packages used in the project
 
 Here's a revised list with short descriptions of the packages used in the project:
-
 
 "@fortawesome/react-fontawesome": This package is designed specifically for React applications and allows easy integration of Font Awesome icons as React components.
 
@@ -21,10 +20,9 @@ Here's a revised list with short descriptions of the packages used in the projec
 
 "react-bootstrap": React Bootstrap combines the power of React and Bootstrap, providing pre-built components from Bootstrap to create responsive and mobile-friendly UIs.
 
-
 "sweetalert2": SweetAlert2 is a library that offers beautiful and customizable alert dialogs for your application. It provides a visually appealing alternative to the default browser alert dialogs.
 
-"Slick Slider " :  Slick Slider is a feature-rich and customizable carousel/slider library for React. It allows you to create responsive and interactive image or content sliders on your website or application.
+"Slick Slider " : Slick Slider is a feature-rich and customizable carousel/slider library for React. It allows you to create responsive and interactive image or content sliders on your website or application.
 
 Guidelines on how to use the project or any relevant instructions.
 
@@ -33,7 +31,6 @@ Guidelines on how to use the project or any relevant instructions.
 **Client:** React,React Bootstrap
 
 **Server:** Node, Express
-
 
 ## Authentication & Deployment
 

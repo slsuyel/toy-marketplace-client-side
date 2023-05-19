@@ -5,9 +5,10 @@ import { Link, useNavigate } from "react-router-dom";
 import authentications from '../../assets/authentications-gif.gif'
 import GoogleGitHubLogin from "../shares/GoogleGitHubLogin/GoogleGitHubLogin";
 import useTitle from "../../hooks/useTitle";
+
 const SignUp = () => {
   useTitle("Sign Up")
-  const { createUser } = useContext(AuthContext)
+  const { createUser, userUpdate, logOut } = useContext(AuthContext)
   // eslint-disable-next-line no-unused-vars
   const [error, setError] = useState("");
   const navigate = useNavigate();
@@ -15,27 +16,26 @@ const SignUp = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
     const form = (event.target);
-    // const name = form.name.value
+    const name = form.name.value
     const password = form.password.value
     const email = form.email.value
-   // const pic = form.photoUrl.value;
-    // const confirmPassword = form.confirmPassword.value
-    //    console.log({name,password,email});
+    const pic = form.photoUrl.value;
+
     createUser(email, password).then((userCredential) => {
-      // Signed in 
       const user = userCredential.user;
-      console.log(user)
-     // form.reset();
-        navigate("/");
-  
+
+      userUpdate(user, name, pic);
+
     })
+      .then(() => {
+        logOut();
+        navigate("/");
+      })
       .catch((error) => {
         const errorMessage = error.message;
         console.log(errorMessage)
       });
   }
-
-
 
   return (
     <div className="container mx-auto row w-100">

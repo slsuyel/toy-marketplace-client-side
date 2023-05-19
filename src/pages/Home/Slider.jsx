@@ -7,7 +7,7 @@ import '../../styles/styles.css'
 export default class Responsive extends Component {
     render() {
         const { toysImg } = this.props;
-        console.log(toysImg);
+      //  console.log(toysImg);
         var settings = {
             dots: true,
             infinite: false,

@@ -1,18 +1,37 @@
-/* 
-const ToyDetails = ({}) => {
-  const { image, name, sellerName, sellerEmail, price, rating, availableQuantity, description } = toys
+import { Card } from "react-bootstrap";
+import { useLoaderData } from "react-router-dom";
+
+const ToyDetails = () => {
+  const toys = useLoaderData()
+  const { pictureUrl, name, sellerName, sellerEmail, price, rating, availableQuantity, description } = toys
   return (
-    <div>
-      <img src={image} alt={name} />
-      <h2>{name}</h2>
-      <p>Sold by: {sellerName} ({sellerEmail})</p>
-      <p>Price: ${price}</p>
-      <p>Rating: {rating}</p>
-      <p>Available quantity: {availableQuantity}</p>
-      <p>Description: {description}</p>
-    </div>
+    <Card className=" mt-4 mx-auto" style={{ width: '28rem' }}>
+      <Card.Img variant="top" src={pictureUrl} alt={name} />
+      <Card.Body>
+        <Card.Title>{name}</Card.Title>
+
+        <div className=" mt-3">
+          <p>Seller Name : {sellerName}</p>
+          <p>Seller Email :{sellerEmail}</p>
+        </div>
+
+        <Card.Text>
+          Price: ${price}
+        </Card.Text>
+        <div className="d-flex justify-content-between">
+          <Card.Text>
+            Rating: {rating}
+          </Card.Text>
+          <Card.Text>
+            Available quantity: {availableQuantity}
+          </Card.Text>
+        </div>
+        <Card.Text>
+          Description: {description}
+        </Card.Text>
+      </Card.Body>
+    </Card>
   );
 };
 
 export default ToyDetails;
- */

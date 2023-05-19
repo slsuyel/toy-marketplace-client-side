@@ -58,7 +58,7 @@ const AllToysPage = () => {
               <td>{toy.price}</td>
               <td>{toy.availableQuantity}</td>
               <td>
-                <Link to={`/toys/${toy._id}`}>
+                <Link to={`/toydetails/${toy._id}`}>
                   <Button variant="primary">View Details</Button>
                 </Link>
               </td>

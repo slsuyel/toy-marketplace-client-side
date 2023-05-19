@@ -72,7 +72,7 @@ const MyToys = () => {
                             <td>{toy.price}</td>
                             <td>{toy.availableQuantity}</td>
                             <td className="d-flex gap-2">
-                                <Link to={`/toys/${toy._id}`}>
+                                <Link to={`/alltoys/${toy._id}`}>
                                     <Button variant="primary">Update </Button>
                                 </Link>
                                 <button onClick={() => { handleDelete(toy._id) }} className="btn btn-danger">Delete</button>

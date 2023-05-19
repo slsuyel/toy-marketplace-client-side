@@ -4,7 +4,7 @@ import { AuthContext } from "../../providers/AuthProviders";
 import { Form } from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom";
 import authentications from '../../assets/authentications-gif.gif'
-import GoogleGitHubLogin from "../shares/GoogleGitHubLogin/GoogleGitHubLogin";
+import GoogleLogin from "../shares/GoogleLogin/GoogleLogin";
 import useTitle from "../../hooks/useTitle";
 import Swal from "sweetalert2";
 
@@ -118,7 +118,7 @@ const SignUp = () => {
           Already have an account?<Link to={"/login"}> Sign in here? </Link>
         </p>
 
-        <GoogleGitHubLogin />
+        <GoogleLogin />
       </div>
     </div>
   );

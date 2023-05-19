@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { Component } from "react";
 import Slider from "react-slick";
 import carImage from '../../assets/car.jpg';
@@ -13,8 +14,8 @@ export default class Responsive extends Component {
             slidesToShow: 4,
             slidesToScroll: 4,
             initialSlide: 0,
-            autoplay: true, // Enable autoplay
-            autoplaySpeed: 4000, // Set autoplay duration to 4 seconds
+            autoplay: true,
+            autoplaySpeed: 3000, 
             responsive: [
                 {
                     breakpoint: 1024,
@@ -49,7 +50,7 @@ export default class Responsive extends Component {
                     {toysImg.map(toy => {
                         return (
                             <div key={toy._id} className="slider-img">
-                                <img src={toy.pictureUrl ? toy.pictureUrl : carImage} alt="" width={'300px'} height={'200px'} className="img-fluid mx-auto" />
+                                <img src={toy.pictureUrl ? toy.pictureUrl : carImage} alt="" width={'300px'} height={'200px'} className="img-fluid mx-auto border" />
                                 <p className="text-center mt-3">{toy.name ? toy.name : "Car Mania"}</p>
                             </div>
                         );

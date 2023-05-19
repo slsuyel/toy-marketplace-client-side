@@ -1,8 +1,8 @@
 import '../../styles/styles.css'
 const About = () => {
     return (
-        <section className="mt-5 py-3 " style={{ background: "#295a411c", padding: '0px 10px' }}>
-            <div className="row">
+        <section className="mt-5 py-3 mx-auto w-100" style={{ background: "#295a411c", padding: '0px 10px' }}>
+            <div className="mx-auto row w-100">
                 <div className="col-lg-6">
                     <h2>About Our Toy World</h2>
                     <p>Welcome to Our Toy World, where imagination knows no bounds! We are passionate about providing children with high-quality toys that inspire creativity, promote learning, and bring joy to their lives.</p>

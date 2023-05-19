@@ -3,9 +3,11 @@ import { Button, Form } from "react-bootstrap";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { AuthContext } from "../../providers/AuthProviders";
-import GoogleGitHubLogin from "../shares/GoogleGitHubLogin/GoogleGitHubLogin";
+
 import authentications from '../../assets/authentications-gif.gif'
 import useTitle from "../../hooks/useTitle";
+import GoogleLogin from "../shares/GoogleLogin/GoogleLogin";
+
 const Login = () => {
   useTitle('Login')
   const { signIn } = useContext(AuthContext);
@@ -83,7 +85,7 @@ const Login = () => {
         <p className="my-2">
           Don’t have an account yet? <Link to={"/signup"}>Sign up</Link>
         </p>
-        <GoogleGitHubLogin />
+        <GoogleLogin />
       </div>
     </div>
   );

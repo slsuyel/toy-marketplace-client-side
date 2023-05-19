@@ -1,11 +1,19 @@
 import { Accordion, Container } from "react-bootstrap";
 import useTitle from "../../hooks/useTitle";
-
+import AOS from "aos";
+import "aos/dist/aos.css";
+import { useEffect } from "react";
 const Blog = () => {
     useTitle("blog")
+
+    useEffect(() => {
+        AOS.init(); // Initialize AOS
+    }, []);
+
+
     return (
-        <Container>
-            <div className="row">
+        <Container data-aos="zoom-in-up">
+            <div className="row" >
                 <div className="col-md-6">
                     <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRKfePrs1BpcNT1RATNEPaoEaK11w_fwGiJTg&usqp=CAU" alt="" className="img-fluid img-thumbnail rounded-2 "
                     />

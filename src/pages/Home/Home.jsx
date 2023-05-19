@@ -27,7 +27,9 @@ const Home = () => {
 
   return (
     <>
-      <div data-aos="flip-up" className="w-100 pt-0">
+      <div data-aos="flip-left"
+        data-aos-easing="ease-out-cubic"
+        data-aos-duration="1000" className="w-100 pt-0">
         <img src={bannerImg} alt="" className="img-fluid" />
       </div>
       <Responsive toysImg={toysImg} />

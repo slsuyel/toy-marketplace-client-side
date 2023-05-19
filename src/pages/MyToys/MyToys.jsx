@@ -4,7 +4,8 @@ import { Button, Container, Table } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import useTitle from "../../hooks/useTitle";
 import Swal from "sweetalert2";
-
+import AOS from "aos";
+import "aos/dist/aos.css";
 const MyToys = () => {
   useTitle('My toys')
   const [myToys, setMyToys] = useState([]);
@@ -50,8 +51,13 @@ const MyToys = () => {
     });
   }
 
+  // Initialize AOS
+  useEffect(() => {
+    AOS.init();
+  }, []);
+
   return (
-    <Container>
+    <Container data-aos="fade-up"  >
       <div className="table-responsive">
         <Table striped bordered hover>
           <thead>
@@ -64,7 +70,7 @@ const MyToys = () => {
               <th>Action</th>
             </tr>
           </thead>
-          <tbody>
+          <tbody >
             {myToys.map((toy) => (
               <tr key={toy._id}>
                 <td>{toy.sellerName}</td>

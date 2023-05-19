@@ -1,13 +1,13 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { Button, Form } from "react-bootstrap";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { AuthContext } from "../../providers/AuthProviders";
-
+import "aos/dist/aos.css";
 import authentications from '../../assets/authentications-gif.gif'
 import useTitle from "../../hooks/useTitle";
 import GoogleLogin from "../shares/GoogleLogin/GoogleLogin";
-
+import AOS from "aos";
 const Login = () => {
   useTitle('Login')
   const { signIn } = useContext(AuthContext);
@@ -36,10 +36,13 @@ const Login = () => {
         setError(errorMessage);
       });
   };
+  useEffect(() => {
+    AOS.init(); // Initialize AOS
+  }, []);
 
   return (
-    <div className="container mx-auto row w-100">
-      <div className="col-md-6">
+    <div  className="container mx-auto row w-100">
+      <div data-aos="fade-right" className="col-md-6">
         <img
           src={authentications}
           alt=""
@@ -47,7 +50,7 @@ const Login = () => {
           className="img-fluid"
         />
       </div>
-      <div className="col-md-6 mt-5">
+      <div data-aos="fade-left" className="col-md-6 mt-5">
         <h4>Sign in to your account</h4>
         <Form onSubmit={handleSubmit}>
           <Form.Group className="mb-3" controlId="formBasicEmail">

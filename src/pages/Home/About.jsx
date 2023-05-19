@@ -1,7 +1,7 @@
 import '../../styles/styles.css'
 const About = () => {
     return (
-        <div data-aos="fade-up" data-aos-duration="1000" className="mt-5 py-3 mx-auto w-100" style={{ background: "#295a411c", padding: '0px 10px' }}>
+        <div data-aos="fade-up-right" data-aos-duration="1000" className="mt-5 py-3 mx-auto w-100" style={{ background: "#295a411c", padding: '0px 10px' }}>
             <div className="mx-auto row w-100">
                 <div className="col-lg-6">
                     <h2>About Our Toy World</h2>

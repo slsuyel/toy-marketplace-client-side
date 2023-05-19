@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../providers/AuthProviders";
 import { Form } from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom";
@@ -7,7 +7,8 @@ import authentications from '../../assets/authentications-gif.gif'
 import GoogleLogin from "../shares/GoogleLogin/GoogleLogin";
 import useTitle from "../../hooks/useTitle";
 import Swal from "sweetalert2";
-
+import AOS from "aos";
+import "aos/dist/aos.css";
 const SignUp = () => {
   useTitle("Sign Up")
 
@@ -55,9 +56,13 @@ const SignUp = () => {
       })
 
   }
-
+  //  AOS.init
+  useEffect(() => {
+    AOS.init(); // Initialize AOS
+  }, []);
   return (
-    <div className="container mx-auto row w-100">
+    <div data-aos="fade-up"
+      data-aos-anchor-placement="bottom-bottom" className="container mx-auto row w-100">
       <div className="col-md-6">
         <img
           src={authentications}

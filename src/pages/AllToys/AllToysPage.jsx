@@ -4,7 +4,8 @@ import { Link } from "react-router-dom";
 import useTitle from "../../hooks/useTitle";
 import { AuthContext } from "../../providers/AuthProviders";
 import Swal from "sweetalert2";
-
+import AOS from "aos";
+import "aos/dist/aos.css";
 const AllToysPage = () => {
   useTitle('All Toys')
   const [toys, setToys] = useState([]);
@@ -27,8 +28,12 @@ const AllToysPage = () => {
     toy.name.toLowerCase().includes(searchQuery.toLowerCase())
   );
 
+  useEffect(() => {
+    AOS.init(); // Initialize AOS
+  }, []);
+
   return (
-    <Container>
+    <Container data-aos="flip-right">
       <Form>
         <Form.Group className="mb-3 mx-auto text-center w-50" controlId="searchInput">
           <Form.Label>Search by toy name:</Form.Label>

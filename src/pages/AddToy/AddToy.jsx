@@ -1,9 +1,10 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Container, Form, Button } from "react-bootstrap";
 import Swal from "sweetalert2";
 import { AuthContext } from "../../providers/AuthProviders";
 import useTitle from "../../hooks/useTitle";
-
+import AOS from "aos";
+import "aos/dist/aos.css";
 const AddToy = () => {
     useTitle('Add to toy');
     const { user } = useContext(AuthContext)
@@ -56,9 +57,13 @@ const AddToy = () => {
             })
 
     };
-
+    useEffect(() => {
+        AOS.init(); // Initialize AOS
+      }, []);
     return (
-        <Container>
+        <Container data-aos="flip-left"
+        data-aos-easing="ease-out-cubic"
+        data-aos-duration="2000">
             <h1 className="text-center">Add a Toy</h1>
 
             <Form onSubmit={handleSubmit}>

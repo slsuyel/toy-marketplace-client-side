@@ -2,9 +2,10 @@ import { useContext, useEffect, useState } from "react";
 import { Button, Card, Tab, Tabs } from "react-bootstrap";
 import { AuthContext } from "../../providers/AuthProviders";
 import { Link } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const TabsMenu = () => {
-    const { setLoading } = useContext(AuthContext);
+    const { setLoading ,user} = useContext(AuthContext);
     const [activeTab, setActiveTab] = useState("Ambulances Cars");
     const [toys, setToys] = useState([]);
 
@@ -36,9 +37,21 @@ const TabsMenu = () => {
                     </div>
                     <div className="text-center w-100">
 
-                        <Link to={`/toydetails/${toy._id}`}>
-                            <Button variant="primary">View Details</Button>
-                        </Link>
+                    <Link to={`/toydetails/${toy._id}`}>
+                    {user ? (
+                      <Button variant="primary">View Details</Button>
+                    ) : (
+                      <Button variant="primary" onClick={() => Swal.fire({
+                        icon: 'error',
+                        title: 'Oops...',
+                        text: 'You have to log in first to view details',
+                        showConfirmButton: false,
+                        timer: 1000
+                      })}>
+                        View Details
+                      </Button>
+                    )}
+                  </Link>
 
 
                     </div>

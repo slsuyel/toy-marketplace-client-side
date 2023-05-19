@@ -1,13 +1,15 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { Container, Table, Button, Form } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import useTitle from "../../hooks/useTitle";
+import { AuthContext } from "../../providers/AuthProviders";
+import Swal from "sweetalert2";
 
 const AllToysPage = () => {
   useTitle('All Toys')
   const [toys, setToys] = useState([]);
   const [searchQuery, setSearchQuery] = useState("");
-
+  const { user } = useContext(AuthContext)
   useEffect(() => {
     fetch("https://ass-server-slsuyel.vercel.app/alltoys")
       .then((response) => response.json())
@@ -39,35 +41,47 @@ const AllToysPage = () => {
         </Form.Group>
       </Form>
       <div className="table-responsive">
-  <Table striped bordered hover>
-    <thead>
-      <tr>
-        <th>Seller</th>
-        <th>Toy Name</th>
-        <th>Sub-category</th>
-        <th>Price</th>
-        <th>Available Quantity</th>
-        <th>View Details</th>
-      </tr>
-    </thead>
-    <tbody>
-      {filteredToys.map((toy) => (
-        <tr key={toy._id}>
-          <td>{toy.sellerName}</td>
-          <td>{toy.name}</td>
-          <td>{toy.subCategory}</td>
-          <td>{toy.price}</td>
-          <td>{toy.availableQuantity}</td>
-          <td>
-            <Link to={`/toydetails/${toy._id}`}>
-              <Button variant="primary">View Details</Button>
-            </Link>
-          </td>
-        </tr>
-      ))}
-    </tbody>
-  </Table>
-</div>
+        <Table striped bordered hover>
+          <thead>
+            <tr>
+              <th>Seller</th>
+              <th>Toy Name</th>
+              <th>Sub-category</th>
+              <th>Price</th>
+              <th>Available Quantity</th>
+              <th>View Details</th>
+            </tr>
+          </thead>
+          <tbody>
+            {filteredToys.map((toy) => (
+              <tr key={toy._id}>
+                <td>{toy.sellerName}</td>
+                <td>{toy.name}</td>
+                <td>{toy.subCategory}</td>
+                <td>{toy.price}</td>
+                <td>{toy.availableQuantity}</td>
+                <td>
+                  <Link to={`/toydetails/${toy._id}`}>
+                    {user ? (
+                      <Button variant="primary">View Details</Button>
+                    ) : (
+                      <Button variant="primary" onClick={() => Swal.fire({
+                        icon: 'error',
+                        title: 'Oops...',
+                        text: 'You have to log in first to view details',
+                        showConfirmButton: false,
+                        timer: 1000
+                      })}>
+                        View Details
+                      </Button>
+                    )}
+                  </Link>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </Table>
+      </div>
 
     </Container>
   );

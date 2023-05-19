@@ -38,34 +38,37 @@ const AllToysPage = () => {
           />
         </Form.Group>
       </Form>
-      <Table striped bordered hover>
-        <thead>
-          <tr>
-            <th>Seller</th>
-            <th>Toy Name</th>
-            <th>Sub-category</th>
-            <th>Price</th>
-            <th>Available Quantity</th>
-            <th>View Details</th>
-          </tr>
-        </thead>
-        <tbody>
-          {filteredToys.map((toy) => (
-            <tr key={toy._id}>
-              <td>{toy.sellerName}</td>
-              <td>{toy.name}</td>
-              <td>{toy.subCategory}</td>
-              <td>{toy.price}</td>
-              <td>{toy.availableQuantity}</td>
-              <td>
-                <Link to={`/toydetails/${toy._id}`}>
-                  <Button variant="primary">View Details</Button>
-                </Link>
-              </td>
-            </tr>
-          ))}
-        </tbody>
-      </Table>
+      <div className="table-responsive">
+  <Table striped bordered hover>
+    <thead>
+      <tr>
+        <th>Seller</th>
+        <th>Toy Name</th>
+        <th>Sub-category</th>
+        <th>Price</th>
+        <th>Available Quantity</th>
+        <th>View Details</th>
+      </tr>
+    </thead>
+    <tbody>
+      {filteredToys.map((toy) => (
+        <tr key={toy._id}>
+          <td>{toy.sellerName}</td>
+          <td>{toy.name}</td>
+          <td>{toy.subCategory}</td>
+          <td>{toy.price}</td>
+          <td>{toy.availableQuantity}</td>
+          <td>
+            <Link to={`/toydetails/${toy._id}`}>
+              <Button variant="primary">View Details</Button>
+            </Link>
+          </td>
+        </tr>
+      ))}
+    </tbody>
+  </Table>
+</div>
+
     </Container>
   );
 };

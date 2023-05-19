@@ -2,8 +2,8 @@ import '../../styles/styles.css'
 const Contact = () => {
     return (
 
-        <div data-aos="flip-left" className=" row mx-auto py-5" >
-           
+        <div className=" row mx-auto py-5" style={{ background: "#295a411c", padding: '0px 10px' }}>
+
             <div className="col-md-6 container">
                 <form>
                     <div className="form-group">

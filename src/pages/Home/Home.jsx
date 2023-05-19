@@ -4,6 +4,7 @@ import About from "./About";
 import Responsive from "./Slider";
 import Contact from "./Contact";
 import TabsMenu from "./TabsMenu";
+import TestimonialSlider from "./TestimonialSlider";
 
 const Home = () => {
   useTitle("Home")
@@ -22,9 +23,9 @@ const Home = () => {
   return (
     <>
       <Responsive toysImg={toysImg} />
-      <About />
       <TabsMenu />
-
+      <About />
+      <TestimonialSlider />
       <Contact />
 
     </>

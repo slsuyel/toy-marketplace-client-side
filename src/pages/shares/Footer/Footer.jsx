@@ -1,8 +1,8 @@
 
 const Footer = () => {
     return (
-        <footer className="bd-footer py-4 py-md-5 mt-5 bg-body-tertiary">
-            <div className="container py-4 py-md-5 px-4 px-md-3 text-body-secondary">
+        <footer className="bd-footer bg-body-tertiary mt-5">
+            <div className="container  px-4 px-md-3 text-body-secondary">
                 <div className="row">
                     <div className="col-lg-3 mb-3">
 
@@ -14,14 +14,13 @@ const Footer = () => {
                     <div className="col-6 col-lg-3 mb-3">
                         <h5>Links</h5>
                         <ul className="list-unstyled">
-                            <li className="mb-2"><a href="/">Home</a></li>
-                            <li className="mb-2"><a href="/docs/5.3/">Docs</a></li>
-                            <li className="mb-2"><a href="/docs/5.3/examples/">Examples</a></li>
-                            <li className="mb-2"><a href="https://icons.getbootstrap.com/">Icons</a></li>
-                            <li className="mb-2"><a href="https://themes.getbootstrap.com/">Themes</a></li>
-                            <li className="mb-2"><a href="https://blog.getbootstrap.com/">Blog</a></li>
-                            <li className="mb-2"><a href="https://cottonbureau.com/people/bootstrap">Swag Store</a></li>
+                            <li className="mb-2"><a href="#">Home</a></li>
+                            <li className="mb-2"><a href="#">Contact</a></li>
+                            <li className="mb-2"><a href="#">Blog</a></li>
+                            <li className="mb-2"><a href="#">FAQ</a></li>
+                           
                         </ul>
+
                     </div>
 
                     <div className="col-6 col-lg-3 mb-3">
@@ -31,7 +30,7 @@ const Footer = () => {
                             <li className="mb-2"><a href="#">Discussions</a></li>
                             <li className="mb-2"><a href="#">Corporate sponsors</a></li>
                             <li className="mb-2"><a href="#">Open Collective</a></li>
-                            <li className="mb-2"><a href="#">Stack Overflow</a></li>
+                            
                         </ul>
 
                     </div>

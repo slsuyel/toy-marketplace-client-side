@@ -1,10 +1,11 @@
 import { useContext, useEffect, useState } from "react";
 import { Button, Card, Tab, Tabs } from "react-bootstrap";
 import { AuthContext } from "../../providers/AuthProviders";
+import { Link } from "react-router-dom";
 
 const TabsMenu = () => {
     const { setLoading } = useContext(AuthContext);
-    const [activeTab, setActiveTab] = useState("classic");
+    const [activeTab, setActiveTab] = useState("Ambulances Cars");
     const [toys, setToys] = useState([]);
 
     useEffect(() => {
@@ -25,22 +26,29 @@ const TabsMenu = () => {
     const generateCards = () => {
         return filteredToys.slice(0, 2).map((toy, index) => (
 
-            <Card style={{ width: '18rem' }} key={index}>
+            <Card style={{ width: '18rem' }} className="border-0  shadow-lg" key={index}>
                 <Card.Body>
                     <Card.Img variant="top" src={toy?.pictureUrl} className="img-fluid" />
-                    <Card.Title>{toy.name || "No toys found"}</Card.Title>
+                    <Card.Title className="my-2 text-center text-danger">Car Name : {toy.name || "No toys found"}</Card.Title>
                     <div className="d-flex justify-content-between">
                         <p>  Price : $ {toy?.price}</p>
-                        <p> Rating : $ {toy?.rating}</p>
+                        <p> Rating : ☆ {toy?.rating}</p>
                     </div>
-                    <div className="text-center w-100"> <Button variant="primary">Go somewhere</Button></div>
+                    <div className="text-center w-100">
+
+                        <Link to={`/toydetails/${toy._id}`}>
+                            <Button variant="primary">View Details</Button>
+                        </Link>
+
+
+                    </div>
                 </Card.Body>
             </Card>
         ));
     };
 
     return (
-        <div className="mx-2">
+        <div className="mx-2 py-4">
             <Tabs
                 id="car-tabs"
                 activeKey={activeTab}

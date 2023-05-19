@@ -6,8 +6,10 @@ import Navigation from "../pages/shares/Navbar/Navigation";
 const MainLayouts = () => {
     return (
         <div>
-            <Navigation/>
-            <Outlet />
+            <Navigation />
+         
+                <Outlet />
+       
             <Footer />
         </div>
     );

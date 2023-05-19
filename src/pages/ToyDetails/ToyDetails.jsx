@@ -6,7 +6,7 @@ const ToyDetails = () => {
   const { pictureUrl, name, sellerName, sellerEmail, price, rating, availableQuantity, description } = toys
   return (
     <Card className=" mt-4 mx-auto" style={{ width: '28rem' }}>
-      <Card.Img variant="top" src={pictureUrl} alt={name} />
+      <Card.Img variant="top" src={pictureUrl} alt={name} className=" img-fluid p-4" />
       <Card.Body>
         <Card.Title>{name}</Card.Title>
 

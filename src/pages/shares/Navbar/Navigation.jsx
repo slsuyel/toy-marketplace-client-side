@@ -19,7 +19,7 @@ function Navigation() {
   };
 
   return (
-    <Navbar bg="light" expand="lg">
+    <Navbar  expand="lg" style={{ background: "#295a411c" , padding:'0px 10px' }}>
       <Container fluid>
         <Navbar.Brand as={Link} to="/" className="navbar-brand w-50">
           <img

@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import useTitle from "../../hooks/useTitle";
 import About from "./About";
 import Responsive from "./Slider";
+import Contact from "./Contact";
+import TabsMenu from "./TabsMenu";
 
 const Home = () => {
   useTitle("Home")
@@ -18,11 +20,14 @@ const Home = () => {
 
 
   return (
-    <div>
+    <>
       <Responsive toysImg={toysImg} />
       <About />
+      <TabsMenu />
 
-    </div>
+      <Contact />
+
+    </>
   );
 };
 

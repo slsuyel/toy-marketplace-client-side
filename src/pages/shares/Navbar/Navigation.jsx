@@ -11,7 +11,7 @@ import profile from "../../../assets/profile.png";
 
 
 function Navigation() {
-  const { user, logOut, photo } = useContext(AuthContext);
+  const { user, logOut, photo, name } = useContext(AuthContext);
   // console.log(photo)
   // console.log(user)
   const logoutBtn = () => {
@@ -40,7 +40,7 @@ function Navigation() {
             <NavLink className="fs-5 text-dark mx-2 text-decoration-none" to="/">  Home   </NavLink>
             <NavLink className="fs-5 text-dark mx-2 text-decoration-none" to="/blog">  Blog   </NavLink>
 
-            <NavLink className="fs-5 text-dark mx-2 text-decoration-none"style={{ whiteSpace: "nowrap" }} to="/allToys">  All Toys   </NavLink>
+            <NavLink className="fs-5 text-dark mx-2 text-decoration-none" style={{ whiteSpace: "nowrap" }} to="/allToys">  All Toys   </NavLink>
 
             {user ? (
               <>
@@ -49,8 +49,11 @@ function Navigation() {
                   <NavLink className="fs-5 text-dark mx-2 text-decoration-none" to="/addToy" style={{ whiteSpace: "nowrap" }}>  Add A Toy   </NavLink>
                   <img
                     className="border border-dark me-2 profile-pic rounded-circle"
-                    src={photo ? photo : profile} alt=""
+                    src={photo ? photo : profile}
+                    alt=""
+                    title={name}
                   />
+
                 </>
                 <p
                   onClick={logoutBtn}

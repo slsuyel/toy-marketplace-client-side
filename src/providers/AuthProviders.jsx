@@ -14,6 +14,7 @@ const AuthProviders = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
   const [photo, setPhoto] = useState("");
+  const [name, setName] = useState('')
 
   const createUser = (email, password) => {
     setLoading(true);
@@ -54,6 +55,7 @@ const AuthProviders = ({ children }) => {
       //  console.log("current user", currentUser);
       if (currentUser) {
         setPhoto(currentUser.photoURL);
+        setName(currentUser.displayName);
       }
 
 
@@ -69,7 +71,7 @@ const AuthProviders = ({ children }) => {
     user,
     loading,
     createUser, photo,
-    signIn, googleSignIn,userUpdate,
+    signIn, googleSignIn, userUpdate,name,
     logOut, githubLogin
   };
 

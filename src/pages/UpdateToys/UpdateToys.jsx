@@ -1,12 +1,13 @@
 import { Button, Container, Form } from "react-bootstrap";
 import { useLoaderData } from "react-router-dom";
 import Swal from "sweetalert2";
+import useTitle from "../../hooks/useTitle";
 
 const UpdateToys = () => {
     const toys = useLoaderData()
     // console.log(toys);
     const { availableQuantity, price, detailDescription, _id } = toys
-
+    useTitle("Update the toys")
     const handleUpdate = (event) => {
         event.preventDefault();
         const form = event.target;

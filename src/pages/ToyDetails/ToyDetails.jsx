@@ -1,9 +1,12 @@
 import { Card } from "react-bootstrap";
 import { useLoaderData } from "react-router-dom";
+import useTitle from "../../hooks/useTitle";
 
 const ToyDetails = () => {
   const toys = useLoaderData()
   const { pictureUrl, name, sellerName, sellerEmail, price, rating, availableQuantity, description } = toys
+
+  useTitle(name)
   return (
     <Card className=" mt-4 mx-auto" style={{ width: '28rem' }}>
       <Card.Img variant="top" src={pictureUrl} alt={name} className=" img-fluid p-4" />

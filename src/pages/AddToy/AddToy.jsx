@@ -34,7 +34,7 @@ const AddToy = () => {
 
         // console.log(formData);
 
-        fetch('http://localhost:3000/toys', {
+        fetch('https://ass-server-slsuyel.vercel.app/toys', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -118,9 +118,10 @@ const AddToy = () => {
                         value={subCategory}
                         onChange={(event) => setSubCategory(event.target.value)}
                     >
-                        <option>Math Toys</option>
-                        <option>Language Toys</option>
-                        <option>Science Toys</option>
+                        <option>Classic Cars</option>
+                        <option>Sports Cars</option>
+                        <option>Racing Cars</option>
+                        <option>Ambulances Cars</option>
                     </Form.Control>
                 </Form.Group>
                 <div className="d-flex gap-2 justify-content-around">

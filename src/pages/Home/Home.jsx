@@ -7,7 +7,7 @@ const Home = () => {
   useTitle("Home")
   const [toysImg, setToysImg] = useState([])
   useEffect(() => {
-    fetch("http://localhost:3000/alltoys")
+    fetch("https://ass-server-slsuyel.vercel.app/alltoys")
       .then(res => res.json())
       .then(data => {
         setToysImg(data);

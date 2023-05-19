@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { useContext, useState } from "react";
 import { AuthContext } from "../../providers/AuthProviders";
 import { Form } from "react-bootstrap";
@@ -5,36 +6,54 @@ import { Link, useNavigate } from "react-router-dom";
 import authentications from '../../assets/authentications-gif.gif'
 import GoogleGitHubLogin from "../shares/GoogleGitHubLogin/GoogleGitHubLogin";
 import useTitle from "../../hooks/useTitle";
+import Swal from "sweetalert2";
 
 const SignUp = () => {
   useTitle("Sign Up")
+
   const { createUser, userUpdate, logOut } = useContext(AuthContext)
-  // eslint-disable-next-line no-unused-vars
+
   const [error, setError] = useState("");
+
   const navigate = useNavigate();
   {/* sweetalert */ }
   const handleSubmit = (event) => {
     event.preventDefault();
     const form = (event.target);
+
     const name = form.name.value
     const password = form.password.value
     const email = form.email.value
+
     const pic = form.photoUrl.value;
 
-    createUser(email, password).then((userCredential) => {
-      const user = userCredential.user;
+    createUser(email, password)
+      .then((userCredential) => {
+        const user = userCredential.user;
+        //console.log(user);
+        form.reset();
 
-      userUpdate(user, name, pic);
 
-    })
-      .then(() => {
-        logOut();
-        navigate("/");
+        userUpdate(user, {
+          displayName: name, photoURL: pic
+        }, Swal.fire({
+          icon: "success",
+          title: "You successfully signed up!!",
+          footer:
+            '<a href="/login" class="btn btn-outline-dark"> Sign in here</a>',
+          showConfirmButton: false,
+        })
+        )
+          .then(() => {
+            logOut();
+            navigate("/");
+          }).catch((error) => {
+            setError(error.message);
+            console.log(error);
+          });
+
       })
-      .catch((error) => {
-        const errorMessage = error.message;
-        console.log(errorMessage)
-      });
+
   }
 
   return (
@@ -60,6 +79,7 @@ const SignUp = () => {
               className="border-0 border-bottom form-control pb-2 rounded-0"
             />
           </Form.Group>
+
           <Form.Group className="mb-3" controlId="formBasicPhoto">
             <Form.Label>Photo URL</Form.Label>
             <Form.Control

@@ -9,7 +9,7 @@ const AllToysPage = () => {
   const [searchQuery, setSearchQuery] = useState("");
 
   useEffect(() => {
-    fetch("http://localhost:3000/alltoys")
+    fetch("https://ass-server-slsuyel.vercel.app/alltoys")
       .then((response) => response.json())
       .then((data) => setToys(data))
       .catch((error) => {

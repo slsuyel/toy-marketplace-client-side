@@ -49,12 +49,12 @@ const router = createBrowserRouter([
             {
                 path: "alltoys/:id",
                 element: <PrivateRoute><UpdateToys /></PrivateRoute>,
-                loader: ({ params }) => fetch(`http://localhost:3000/alltoys/${params.id}`)
+                loader: ({ params }) => fetch(`https://ass-server-slsuyel.vercel.app/${params.id}`)
             },
             {
                 path: "toydetails/:id",
                 element: <PrivateRoute><ToyDetails /></PrivateRoute>,
-                loader: ({ params }) => fetch(`http://localhost:3000/alltoys/${params.id}`)
+                loader: ({ params }) => fetch(`https://ass-server-slsuyel.vercel.app/alltoys/${params.id}`)
             },
         ]
     },

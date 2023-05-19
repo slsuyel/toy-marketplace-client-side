@@ -44,7 +44,7 @@ export default class Responsive extends Component {
         };
         return (
             <div className="container mt-4 mx-auto">
-                <Slider {...settings}>
+                <Slider {...settings} >
                     {
                         toysImg.map(toy => {
                             return (

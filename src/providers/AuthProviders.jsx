@@ -43,11 +43,10 @@ const AuthProviders = ({ children }) => {
     return signOut(auth);
   };
 
+
   const userUpdate = (user, userName) => {
     return updateProfile(user, userName);
   };
-
-
 
 
   useEffect(() => {

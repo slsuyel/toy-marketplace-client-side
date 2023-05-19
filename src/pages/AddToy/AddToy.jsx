@@ -19,7 +19,7 @@ const AddToy = () => {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-
+        event.target.reset();
         const formData = {
             pictureUrl: event.target.pictureUrl.value,
             name: event.target.name.value,
@@ -43,7 +43,7 @@ const AddToy = () => {
         })
             .then(res => res.json())
             .then(data => {
-            //    console.log(data);
+                //    console.log(data);
                 if (data.acknowledged) {
                     Swal.fire({
                         position: 'center',

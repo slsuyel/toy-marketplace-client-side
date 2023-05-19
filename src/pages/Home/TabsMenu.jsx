@@ -1,34 +1,62 @@
-import { Tab, Tabs } from "react-bootstrap";
+import { useContext, useEffect, useState } from "react";
+import { Button, Card, Tab, Tabs } from "react-bootstrap";
+import { AuthContext } from "../../providers/AuthProviders";
 
 const TabsMenu = () => {
+    const { setLoading } = useContext(AuthContext);
+    const [activeTab, setActiveTab] = useState("classic");
+    const [toys, setToys] = useState([]);
 
+    useEffect(() => {
+        fetch("https://ass-server-slsuyel.vercel.app/alltoys")
+            .then((res) => res.json())
+            .then((data) => {
+                setToys(data);
+                setLoading(false);
+            });
+    }, []);
+
+    const handleTabSelect = (tab) => {
+        setActiveTab(tab);
+    };
+
+    const filteredToys = toys.filter((toy) => toy.subCategory === activeTab);
+
+    const generateCards = () => {
+        return filteredToys.slice(0, 2).map((toy, index) => (
+
+            <Card style={{ width: '18rem' }} key={index}>
+                <Card.Body>
+                    <Card.Img variant="top" src={toy?.pictureUrl} className="img-fluid" />
+                    <Card.Title>{toy.name || "No toys found"}</Card.Title>
+                    <div className="d-flex justify-content-between">
+                        <p>  Price : $ {toy?.price}</p>
+                        <p> Rating : $ {toy?.rating}</p>
+                    </div>
+                    <div className="text-center w-100"> <Button variant="primary">Go somewhere</Button></div>
+                </Card.Body>
+            </Card>
+        ));
+    };
 
     return (
-        <div className="my-5 mx-3">
+        <div className="mx-2">
             <Tabs
-                defaultActiveKey="profile"
-                id="uncontrolled-tab-example"
+                id="car-tabs"
+                activeKey={activeTab}
+                onSelect={handleTabSelect}
                 className="mb-3 justify-content-center"
             >
-                <Tab eventKey="home" title="Sports Cars" className="border-0">
-                    <div>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque, culpa ipsam maxime modi necessitatibus dolor tempora inventore accusamus laboriosam sunt ut voluptatem magni ratione dolore non ipsum minus odio ex.
-                    </div>
+                <Tab eventKey="Classic Cars" title="Classic Car" className="border-0">
+                    <div className="d-flex justify-content-center gap-3 flex-wrap">{generateCards()}</div>
                 </Tab>
-                <Tab eventKey="profile" title="Racing car" className="border-0">
-                    <div>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque, culpa ipsam maxime modi necessitatibus dolor tempora inventore accusamus laboriosam sunt ut voluptatem magni ratione dolore non ipsum minus odio ex.
-                    </div>
+
+                <Tab eventKey="Ambulances Cars" title="Ambulance Car" className="border-0">
+                    <div className="d-flex justify-content-center gap-3 flex-wrap">{generateCards()}</div>
                 </Tab>
-                <Tab eventKey="contact" title="Ambulance car" className="border-0">
-                    <div>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque, culpa ipsam maxime modi necessitatibus dolor tempora inventore accusamus laboriosam sunt ut voluptatem magni ratione dolore non ipsum minus odio ex.
-                    </div>
-                </Tab>
-                <Tab eventKey="classic" title="Classic car" className="border-0">
-                    <div>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque, culpa ipsam maxime modi necessitatibus dolor tempora inventore accusamus laboriosam sunt ut voluptatem magni ratione dolore non ipsum minus odio ex.
-                    </div>
+
+                <Tab eventKey="Racing Cars" title="Racing Car" className="border-0">
+                    <div className="d-flex justify-content-center gap-3 flex-wrap">{generateCards()}</div>
                 </Tab>
             </Tabs>
         </div>

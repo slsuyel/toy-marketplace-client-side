@@ -45,7 +45,7 @@ export default class Responsive extends Component {
             ]
         };
         return (
-            <div className="container mt-4 mx-auto">
+            <div data-aos="zoom-in-down" className="container mt-4 mx-auto">
                 <Slider {...settings}>
                     {toysImg.map(toy => {
                         return (

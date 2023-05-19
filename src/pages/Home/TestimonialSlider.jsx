@@ -35,7 +35,7 @@ export default function TestimonialSlider() {
     };
 
     return (
-        <div className='container mx-auto row w-100'>
+        <div  className='container mx-auto row w-100'>
             <div className='col-md-6'>
                 <img src={testi} width={'350px'} className='img-fluid w-100' />
             </div>

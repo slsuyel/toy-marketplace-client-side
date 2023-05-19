@@ -2,7 +2,7 @@ import '../../styles/styles.css'
 const Contact = () => {
     return (
 
-        <div className=" row mx-auto py-5" style={{ background: "#295a411c", padding: '0px 10px' }}>
+        <div data-aos="fade-down" className=" row mx-auto py-5" style={{ background: "#295a411c", padding: '0px 10px' }}>
 
             <div className="col-md-6 container">
                 <form>

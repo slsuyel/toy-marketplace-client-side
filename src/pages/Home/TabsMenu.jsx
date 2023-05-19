@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 
 const TabsMenu = () => {
-    const { setLoading ,user} = useContext(AuthContext);
+    const { setLoading, user } = useContext(AuthContext);
     const [activeTab, setActiveTab] = useState("Ambulances Cars");
     const [toys, setToys] = useState([]);
 
@@ -27,7 +27,8 @@ const TabsMenu = () => {
     const generateCards = () => {
         return filteredToys.slice(0, 2).map((toy, index) => (
 
-            <Card style={{ width: '18rem' }} className="border-0  shadow-lg" key={index}>
+            <Card data-aos="fade-up"
+                data-aos-anchor-placement="bottom-bottom" style={{ width: '18rem' }} className="border-0  shadow-lg" key={index}>
                 <Card.Body>
                     <Card.Img variant="top" src={toy?.pictureUrl} className="img-fluid" />
                     <Card.Title className="my-2 text-center text-danger">Car Name : {toy.name || "No toys found"}</Card.Title>
@@ -37,21 +38,21 @@ const TabsMenu = () => {
                     </div>
                     <div className="text-center w-100">
 
-                    <Link to={`/toydetails/${toy._id}`}>
-                    {user ? (
-                      <Button variant="primary">View Details</Button>
-                    ) : (
-                      <Button variant="primary" onClick={() => Swal.fire({
-                        icon: 'error',
-                        title: 'Oops...',
-                        text: 'You have to log in first to view details',
-                        showConfirmButton: false,
-                        timer: 1000
-                      })}>
-                        View Details
-                      </Button>
-                    )}
-                  </Link>
+                        <Link to={`/toydetails/${toy._id}`}>
+                            {user ? (
+                                <Button variant="primary">View Details</Button>
+                            ) : (
+                                <Button variant="primary" onClick={() => Swal.fire({
+                                    icon: 'error',
+                                    title: 'Oops...',
+                                    text: 'You have to log in first to view details',
+                                    showConfirmButton: false,
+                                    timer: 1000
+                                })}>
+                                    View Details
+                                </Button>
+                            )}
+                        </Link>
 
 
                     </div>

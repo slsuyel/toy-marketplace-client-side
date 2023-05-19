@@ -7,7 +7,7 @@ import '../../styles/styles.css'
 export default class Responsive extends Component {
     render() {
         const { toysImg } = this.props;
-      //  console.log(toysImg);
+        //  console.log(toysImg);
         var settings = {
             dots: true,
             infinite: false,
@@ -50,7 +50,7 @@ export default class Responsive extends Component {
                             return (
                                 <div key={toy._id} className="slider-img">
                                     <img src={toy.pictureUrl ? toy.pictureUrl : carImage} alt="" width={'300px'} height={'200px'} className=" img-fluid mx-auto" />
-                                    <p className="text-center">{toy.name? toy.name :"Car Mania"}</p>
+                                    <p className="text-center mt-3">{toy.name ? toy.name : "Car Mania"}</p>
                                 </div>
                             );
                         })

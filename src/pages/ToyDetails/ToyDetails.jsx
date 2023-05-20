@@ -1,7 +1,7 @@
-import { Card } from "react-bootstrap";
+import buyBtn from '../../assets/buy-now.png'
 import { useLoaderData } from "react-router-dom";
 import useTitle from "../../hooks/useTitle";
-
+import '../../styles/styles.css'
 const ToyDetails = () => {
   const toys = useLoaderData()
   const { pictureUrl, name, sellerName, sellerEmail, price, rating, availableQuantity, description } = toys
@@ -9,12 +9,12 @@ const ToyDetails = () => {
   useTitle(name)
   return (
 
-    <div className="row w-75 mx-auto ">
-      <div className="col-md-6 my-auto shadow">
+    <div className="row w-75 mx-auto my-5">
+      <div className="col-md-6 my-auto shadow text-center">
         <img src={pictureUrl} className="img-fluid rounded " width={'300px'} />
         <div className="d-flex justify-content-center gap-3 mb-3">
-          <button className="btn btn-outline-info">Add To cart</button>
-          <button className="btn btn-outline-danger">Buy Now</button>
+          <img src={buyBtn} alt="" width={'190px'} height={'80px'} draggable={false} className='buy-btn' />
+
         </div>
       </div>
       <div className="col-md-6">

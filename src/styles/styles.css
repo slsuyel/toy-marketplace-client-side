@@ -57,3 +57,11 @@
   width: 300px;
   height: 200px;
 }
+.buy-btn {
+  cursor: pointer;
+}
+
+.buy-btn:hover {
+  width: 185px;
+  height: 78px;
+}

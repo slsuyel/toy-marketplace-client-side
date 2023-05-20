@@ -61,8 +61,8 @@ const SignUp = () => {
     AOS.init(); // Initialize AOS
   }, []);
   return (
-    <div data-aos="fade-up"
-      data-aos-anchor-placement="bottom-bottom" className="container mx-auto row w-100">
+    <div data-aos="zoom-in"
+       className="container mx-auto row w-100">
       <div className="col-md-6">
         <img
           src={authentications}

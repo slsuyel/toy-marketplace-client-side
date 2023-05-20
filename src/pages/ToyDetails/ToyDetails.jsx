@@ -4,7 +4,7 @@ import useTitle from "../../hooks/useTitle";
 import '../../styles/styles.css'
 const ToyDetails = () => {
   const toys = useLoaderData()
-  const { pictureUrl, name, sellerName, sellerEmail, price, rating, availableQuantity, description } = toys
+  const { pictureUrl, name, sellerName, sellerEmail, price, rating, availableQuantity, description: detailDescription } = toys
 
   useTitle(name)
   return (
@@ -26,7 +26,7 @@ const ToyDetails = () => {
           <p><strong>Ratings:</strong> {rating}</p>
           <p><strong>Quantity:</strong> {availableQuantity}</p>
         </div>
-        <p className=""><strong>Description:</strong> {description ? description : 'This toy car is a perfect addition to any racing collection. Its sleek design and vibrant color make it stand out on the tracks. Get ready for high-speed fun!'}</p>
+        <p className=""><strong>Description:</strong> {detailDescription ? detailDescription : 'This toy car is a perfect addition to any racing collection. Its sleek design and vibrant color make it stand out on the tracks. Get ready for high-speed fun!'}</p>
 
       </div>
     </div>

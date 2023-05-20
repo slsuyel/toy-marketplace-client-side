@@ -9,7 +9,7 @@ const PrivateRoute = ({ children }) => {
 
     const { user, loading } = useContext(AuthContext);
     if (loading) {
-        return  <Spinner animation="grow" />
+        return  <div className="w-100 text-center"><Spinner animation="grow"className="p-4" /></div>
     }
 
     if (user?.email) {

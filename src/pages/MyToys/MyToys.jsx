@@ -15,7 +15,6 @@ const MyToys = () => {
 
   useEffect(() => {
     const url = `https://ass-server-slsuyel.vercel.app/mytoys/${user?.email}?sortOrder=${sortOrder}`;
-
     fetch(url)
       .then((res) => res.json())
       .then((data) => {
@@ -47,6 +46,7 @@ const MyToys = () => {
                 showConfirmButton: false,
                 timer: 1500
               })
+              window.location.reload()
             }
           })
       }

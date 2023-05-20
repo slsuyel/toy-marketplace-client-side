@@ -8,15 +8,15 @@ const UpdateToys = () => {
     // console.log(toys);
     const { availableQuantity, price, detailDescription, _id } = toys
     useTitle("Update the toys")
+
     const handleUpdate = (event) => {
         event.preventDefault();
         const form = event.target;
         const availableQuantity = form.availableQuantity.value
-        const price = form.price.value
+        const price = parseInt(form.price.value);
         const detailDescription = form.detailDescription.value
         const updatedToys = { availableQuantity, price, detailDescription }
-        console.log(updatedToys);
-
+        // console.log(updatedToys);
         fetch(`https://ass-server-slsuyel.vercel.app/alltoys/${_id}`, {
             method: 'PUT',
             headers: {
@@ -37,11 +37,7 @@ const UpdateToys = () => {
                     })
                 }
             })
-
-
     }
-
-
 
     return (
         <Container>

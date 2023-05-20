@@ -53,7 +53,7 @@ function Navigation() {
                 <>
                   <>
                     <NavLink className="fs-5 text-dark mx-2 text-decoration-none now" to="/mytoys" style={{ whiteSpace: "nowrap" }}>  My Toy   </NavLink>
-                    <NavLink className="fs-5 text-dark mx-2 text-decoration-none" to="/addToy" style={{ whiteSpace: "nowrap" }}>  Add A Toy   </NavLink>
+                    <NavLink className="fs-5 text-dark mx-2 text-decoration-none mb-2" to="/addToy" style={{ whiteSpace: "nowrap" }}>  Add A Toy   </NavLink>
                     <OverlayTrigger
                       placement="right"
                       delay={{ show: 250, hide: 400 }}
@@ -69,7 +69,7 @@ function Navigation() {
                   </>
                   <p
                     onClick={logoutBtn}
-                    className="btn btn-info fw-semibold mb-0 mx-1"
+                    className="btn btn-info fw-semibold mb-0 mx-1 mt-sm-1"
                     style={{ whiteSpace: "nowrap" }}
                   >
                     Log Out

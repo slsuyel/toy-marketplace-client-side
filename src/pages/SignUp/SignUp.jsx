@@ -33,7 +33,7 @@ const SignUp = () => {
         const user = userCredential.user;
         //console.log(user);
         form.reset();
-
+        navigate("/");
 
         userUpdate(user, {
           displayName: name, photoURL: pic
@@ -62,7 +62,7 @@ const SignUp = () => {
   }, []);
   return (
     <div data-aos="zoom-in"
-       className="container mx-auto row w-100">
+      className="container mx-auto row w-100">
       <div className="col-md-6">
         <img
           src={authentications}

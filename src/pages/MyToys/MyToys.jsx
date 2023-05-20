@@ -18,7 +18,8 @@ const MyToys = () => {
       .then((data) => {
         setMyToys(data)
       });
-  }, [user, myToys]);
+  }, [user]);
+
 
   const handleDelete = (id) => {
     Swal.fire({
@@ -50,7 +51,7 @@ const MyToys = () => {
       }
     });
   }
-
+  {console.log(typeof(myToys[0]?.price))}
   // Initialize AOS
   useEffect(() => {
     AOS.init();
@@ -76,6 +77,7 @@ const MyToys = () => {
                 <td>{toy.sellerName}</td>
                 <td>{toy.name}</td>
                 <td>{toy.subCategory}</td>
+               
                 <td>{toy.price}</td>
                 <td>{toy.availableQuantity}</td>
                 <td className="d-flex gap-2">

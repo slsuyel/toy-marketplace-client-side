@@ -1,14 +1,15 @@
 
 const Footer = () => {
     return (
-        <footer className="bd-footer bg-body-tertiary pt-5" style={{backgroundColor : "#F8E4E5"}}>
+        <footer className="bd-footer bg-body-tertiary pt-5" style={{ backgroundColor: "#F8E4E5" }}>
             <div className="container  px-4 px-md-3 text-body-secondary">
                 <div className="row">
                     <div className="col-lg-3 mb-3">
 
-                        <ul className="list-unstyled small">
-                            <li className="mb-2">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ex consequatur maiores excepturi aut qui officiis, facere atque, repellat, ipsam minus nesciunt quibusdam quidem. Saepe maxime doloremque at expedita veritatis id!</li>
-                        </ul>
+                        <div className="list-unstyled small">
+                            <img src="https://assignment-11-1f233.web.app/assets/logo-eb6e7e82.png" width={'180px'} alt="" />
+                            <p className="mb-2">ToyCarMania is a thrilling online destination dedicated to the joy of toy cars. Experience the excitement as you explore a wide range of toy cars, from classic models to cutting-edge designs. </p>
+                        </div>
 
                     </div>
                     <div className="col-6 col-lg-3 mb-3">
@@ -18,7 +19,7 @@ const Footer = () => {
                             <li className="mb-2"><a href="#">Contact</a></li>
                             <li className="mb-2"><a href="#">Blog</a></li>
                             <li className="mb-2"><a href="#">FAQ</a></li>
-                           
+
                         </ul>
 
                     </div>
@@ -30,7 +31,7 @@ const Footer = () => {
                             <li className="mb-2"><a href="#">Discussions</a></li>
                             <li className="mb-2"><a href="#">Corporate sponsors</a></li>
                             <li className="mb-2"><a href="#">Open Collective</a></li>
-                            
+
                         </ul>
 
                     </div>

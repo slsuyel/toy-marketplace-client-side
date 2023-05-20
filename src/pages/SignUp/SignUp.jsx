@@ -17,21 +17,17 @@ const SignUp = () => {
   const [error, setError] = useState("");
 
   const navigate = useNavigate();
-  {/* sweetalert */ }
   const handleSubmit = (event) => {
     event.preventDefault();
     const form = (event.target);
-
     const name = form.name.value
     const password = form.password.value
     const email = form.email.value
-
     const pic = form.photoUrl.value;
 
     createUser(email, password)
       .then((userCredential) => {
         const user = userCredential.user;
-        //console.log(user);
         form.reset();
         navigate("/");
 
@@ -46,7 +42,7 @@ const SignUp = () => {
         })
         )
           .then(() => {
-            logOut();
+            logOut()
             navigate("/");
           }).catch((error) => {
             setError(error.message);

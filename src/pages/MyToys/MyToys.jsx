@@ -6,20 +6,22 @@ import useTitle from "../../hooks/useTitle";
 import Swal from "sweetalert2";
 import AOS from "aos";
 import "aos/dist/aos.css";
+
 const MyToys = () => {
-  useTitle('My toys')
+  useTitle('My toys');
   const [myToys, setMyToys] = useState([]);
   const { user } = useContext(AuthContext);
+  const [sortOrder, setSortOrder] = useState('asc');
 
-  const url = `https://ass-server-slsuyel.vercel.app/mytoys/${user?.email}`;
   useEffect(() => {
+    const url = `https://ass-server-slsuyel.vercel.app/mytoys/${user?.email}?sortOrder=${sortOrder}`;
+
     fetch(url)
       .then((res) => res.json())
       .then((data) => {
-        setMyToys(data)
+        setMyToys(data);
       });
-  }, [user]);
-
+  }, [user, sortOrder]);
 
   const handleDelete = (id) => {
     Swal.fire({
@@ -37,7 +39,6 @@ const MyToys = () => {
         })
           .then(res => res.json())
           .then(data => {
-            //  console.log(data);
             if (data.deletedCount > 0) {
               Swal.fire({
                 position: 'top-end',
@@ -50,15 +51,29 @@ const MyToys = () => {
           })
       }
     });
-  }
-  {console.log(typeof(myToys[0]?.price))}
-  // Initialize AOS
+  };
+
   useEffect(() => {
     AOS.init();
   }, []);
 
+  const handleSort = (event) => {
+    const selectedSortOrder = event.target.value;
+    setSortOrder(selectedSortOrder);
+  };
+
   return (
-    <Container data-aos="fade-up"  >
+    <Container data-aos="fade-up">
+      <div className="align-items-center d-flex justify-content-between my-3">
+        <h3 className="">My toys:</h3>
+        <div>
+          <label htmlFor="sortOrder" className="d-block mb-1">Sort By Price:</label>
+          <select id="sortOrder" value={sortOrder} onChange={handleSort}>
+            <option value="asc">Ascending</option>
+            <option value="desc">Descending</option>
+          </select>
+        </div>
+      </div>
       <div className="table-responsive">
         <Table striped bordered hover>
           <thead>
@@ -71,18 +86,17 @@ const MyToys = () => {
               <th>Action</th>
             </tr>
           </thead>
-          <tbody >
+          <tbody>
             {myToys.map((toy) => (
               <tr key={toy._id}>
                 <td>{toy.sellerName}</td>
                 <td>{toy.name}</td>
                 <td>{toy.subCategory}</td>
-               
                 <td>{toy.price}</td>
                 <td>{toy.availableQuantity}</td>
                 <td className="d-flex gap-2">
                   <Link to={`/alltoys/${toy._id}`}>
-                    <Button variant="primary">Update </Button>
+                    <Button variant="primary">Update</Button>
                   </Link>
                   <button onClick={() => { handleDelete(toy._id) }} className="btn btn-danger">Delete</button>
                 </td>
@@ -91,7 +105,7 @@ const MyToys = () => {
           </tbody>
         </Table>
       </div>
-    </Container >
+    </Container>
   );
 };
 

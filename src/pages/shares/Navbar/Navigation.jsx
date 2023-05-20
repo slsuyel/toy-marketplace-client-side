@@ -41,7 +41,6 @@ function Navigation() {
           <Navbar.Collapse id="navbarScroll">
             <Nav
               className="me-auto my-2 my-lg-0"
-              style={{ maxHeight: '100px' }}
               navbarScroll
             >
               <NavLink className="fs-5 text-dark mx-2 text-decoration-none" to="/">  Home   </NavLink>
@@ -69,7 +68,7 @@ function Navigation() {
                   </>
                   <p
                     onClick={logoutBtn}
-                    className="btn btn-info fw-semibold mb-0 mx-1 mt-sm-1"
+                    className="btn btn-info fw-semibold mb-0 mx-1 mt-sm-1 mt-2"
                     style={{ whiteSpace: "nowrap" }}
                   >
                     Log Out

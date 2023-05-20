@@ -47,24 +47,28 @@ const AllToysPage = () => {
       </Form>
       <div className="table-responsive">
         <Table striped bordered hover>
-          <thead>
+          <thead className="text-center">
             <tr>
-              <th>Seller</th>
+              <th>Photo</th>
               <th>Toy Name</th>
+              <th>Seller</th>
               <th>Sub-category</th>
               <th>Price</th>
-              <th>Available Quantity</th>
+              <th> Quantity</th>
               <th>View Details</th>
             </tr>
           </thead>
-          <tbody>
+          <tbody className="text-center">
             {filteredToys.map((toy) => (
               <tr key={toy._id}>
-                <td>{toy.sellerName}</td>
-                <td>{toy.name}</td>
-                <td>{toy.subCategory}</td>
-                <td>{toy.price}</td>
-                <td>{toy.availableQuantity}</td>
+                <td>
+                  <img src={toy?.pictureUrl} width={'60px'} height={'50px'} alt=""/>
+                </td>
+                <td>{toy?.name}</td>
+                <td>{toy?.sellerName}</td>
+                <td>{toy?.subCategory}</td>
+                <td>{toy?.price}</td>
+                <td>{toy?.availableQuantity}</td>
                 <td>
                   <Link to={`/toydetails/${toy._id}`}>
                     {user ? (

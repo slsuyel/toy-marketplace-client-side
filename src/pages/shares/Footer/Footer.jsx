@@ -1,7 +1,7 @@
 
 const Footer = () => {
     return (
-        <footer className="bd-footer bg-body-tertiary mt-5">
+        <footer className="bd-footer bg-body-tertiary pt-5" style={{backgroundColor : "#F8E4E5"}}>
             <div className="container  px-4 px-md-3 text-body-secondary">
                 <div className="row">
                     <div className="col-lg-3 mb-3">
@@ -54,7 +54,7 @@ const Footer = () => {
                 </div>
             </div>
 
-            <div className="text-center px-4" style={{ backgroundColor: 'rgba(0, 0, 0, 0.05)' }}>
+            <div className="text-center px-4 py-3" style={{ backgroundColor: 'rgba(0, 0, 0, 0.05)' }}>
                 © 2023. All rights reserved.
             </div>
 

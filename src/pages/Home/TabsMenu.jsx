@@ -3,7 +3,7 @@ import { Button, Card, Tab, Tabs } from "react-bootstrap";
 import { AuthContext } from "../../providers/AuthProviders";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
-
+import '../../styles/styles.css'
 const TabsMenu = () => {
     const { setLoading, user } = useContext(AuthContext);
     const [activeTab, setActiveTab] = useState("Ambulances Cars");
@@ -22,15 +22,14 @@ const TabsMenu = () => {
         setActiveTab(tab);
     };
 
-    const filteredToys = toys.filter((toy) => toy.subCategory === activeTab);
+    const filteredToys = toys.filter((toy) => toy.subCategory == activeTab);
 
     const generateCards = () => {
-        return filteredToys.slice(0, 2).map((toy, index) => (
+        return filteredToys.slice(-2).map((toy, index) => (
 
-            <Card data-aos="fade-up"
-                data-aos-anchor-placement="bottom-bottom" style={{ width: '18rem' }} className="border-0  shadow-lg" key={index}>
-                <Card.Body>
-                    <Card.Img variant="top" src={toy?.pictureUrl} className="img-fluid" />
+            <Card  data-aos-anchor-placement="bottom-bottom" style={{ width: '18rem' }} className="border-0  shadow-lg" key={index}>
+                <Card.Body >
+                    <Card.Img variant="top" src={toy?.pictureUrl} className="img-fluid fixed-image" />
                     <Card.Title className="my-2 text-center text-danger">Car Name : {toy.name || "No toys found"}</Card.Title>
                     <div className="d-flex justify-content-between">
                         <p>  Price : $ {toy?.price}</p>
@@ -38,7 +37,7 @@ const TabsMenu = () => {
                     </div>
                     <div className="text-center w-100">
 
-                        <Link to={`/toydetails/${toy._id}`}>
+                        <Link to={`/toydetails/${toy._id}`} className="">
                             {user ? (
                                 <Button variant="primary">View Details</Button>
                             ) : (
@@ -62,7 +61,7 @@ const TabsMenu = () => {
     };
 
     return (
-        <div className="mx-2 py-4">
+        <div data-aos="fade-right" className="mx-2 py-4  mt-5 w-100 mx-auto" style={{backgroundColor : "#F8E4E5"}}>
             <Tabs
                 id="car-tabs"
                 activeKey={activeTab}

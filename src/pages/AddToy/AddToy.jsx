@@ -20,7 +20,7 @@ const AddToy = () => {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        event.target.reset();
+      
         const formData = {
             pictureUrl: event.target.pictureUrl.value,
             name: event.target.name.value,
@@ -59,11 +59,11 @@ const AddToy = () => {
     };
     useEffect(() => {
         AOS.init(); // Initialize AOS
-      }, []);
+    }, []);
     return (
         <Container data-aos="flip-left"
-        data-aos-easing="ease-out-cubic"
-        data-aos-duration="2000">
+            data-aos-easing="ease-out-cubic"
+            data-aos-duration="2000">
             <h1 className="text-center">Add a Toy</h1>
 
             <Form onSubmit={handleSubmit}>
@@ -124,11 +124,12 @@ const AddToy = () => {
                         onChange={(event) => setSubCategory(event.target.value)}
                     >
                         <option>Classic Cars</option>
-                        <option>Sports Cars</option>
+
                         <option>Racing Cars</option>
                         <option>Ambulances Cars</option>
                     </Form.Control>
                 </Form.Group>
+
                 <div className="d-flex gap-2 justify-content-around">
                     <Form.Group className="w-100" controlId="price">
                         <Form.Label>Price</Form.Label>

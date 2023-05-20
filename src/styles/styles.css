@@ -1,7 +1,6 @@
 * {
   margin: 0;
   padding: 0;
-
 }
 .active {
   color: rgb(43, 43, 43) !important;
@@ -32,27 +31,7 @@
   height: 200px;
 }
 
-.tooltip {
-  position: relative;
-  display: inline-block;
-  cursor: pointer;
-}
 
-.tooltip::after {
-  content: attr(title);
-  position: absolute;
-  bottom: 100%;
-  left: 50%;
-  transform: translateX(-50%);
-  padding: 5px;
-  background-color: black;
-  color: white;
-  border-radius: 4px;
-  white-space: nowrap;
-  visibility: hidden;
-  opacity: 0;
-  transition: visibility 0s, opacity 0.2s ease-in-out;
-}
 .border-style {
   border-radius: 52px 0 0 0px;
 }
@@ -73,4 +52,8 @@
   border-radius: 50%;
   margin: auto;
   border: 1px solid rebeccapurple;
+}
+.fixed-image {
+  width: 300px;
+  height: 200px;
 }

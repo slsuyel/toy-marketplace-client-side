@@ -8,12 +8,21 @@ import { AuthContext } from '../../../providers/AuthProviders';
 import { useContext } from 'react';
 import logo from '../../../assets/logo.png'
 import profile from "../../../assets/profile.png";
+import { OverlayTrigger, Tooltip } from 'react-bootstrap';
 
 function Navigation() {
   const { user, logOut, photo, name } = useContext(AuthContext);
   const logoutBtn = () => {
     logOut();
   };
+
+  const renderTooltip = (props) => (
+    <Tooltip id="button-tooltip" {...props}>
+     {name}
+    </Tooltip>
+  );
+
+
 
   return (
     <header>
@@ -45,13 +54,18 @@ function Navigation() {
                   <>
                     <NavLink className="fs-5 text-dark mx-2 text-decoration-none now" to="/mytoys" style={{ whiteSpace: "nowrap" }}>  My Toy   </NavLink>
                     <NavLink className="fs-5 text-dark mx-2 text-decoration-none" to="/addToy" style={{ whiteSpace: "nowrap" }}>  Add A Toy   </NavLink>
-                    <img
-                      className="border border-dark me-2 profile-pic rounded-circle"
-                      src={photo ? photo : profile}
-                      alt=""
-                      title={name}
-                    />
+                    <OverlayTrigger
+                      placement="right"
+                      delay={{ show: 250, hide: 400 }}
+                      overlay={renderTooltip}
+                    >
+                      <img
+                        className="border border-dark me-2 profile-pic rounded-circle"
+                        src={photo ? photo : profile}
+                        alt=""
 
+                      />
+                    </OverlayTrigger>
                   </>
                   <p
                     onClick={logoutBtn}
@@ -70,7 +84,7 @@ function Navigation() {
           </Navbar.Collapse>
         </Container>
       </Navbar>
-      
+
 
     </header>
   );

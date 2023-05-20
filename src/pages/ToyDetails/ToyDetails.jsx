@@ -4,7 +4,7 @@ import useTitle from "../../hooks/useTitle";
 import '../../styles/styles.css'
 const ToyDetails = () => {
   const toys = useLoaderData()
-  const { pictureUrl, name, sellerName, sellerEmail, price, rating, availableQuantity, description: detailDescription } = toys
+  const { pictureUrl, name, sellerName, sellerEmail, price, rating, availableQuantity,detailDescription } = toys
 
   useTitle(name)
   return (
@@ -30,9 +30,6 @@ const ToyDetails = () => {
 
       </div>
     </div>
-
-
-
 
 
   );
